@@ -19,7 +19,7 @@ public class not_1in extends Component{
 
     public String toString(){
 
-        return this.name + " ins: " + in1.getID() + " outs: " + out.getID();
+        return this.getID() + " " + this.name + " ins: " + in1.getID() + " outs: " + out.getID();
 
     }
 

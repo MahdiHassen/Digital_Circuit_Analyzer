@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class Circuit {
 
     ArrayList<Object> compList= new ArrayList<Object>();
+    ArrayList<Object> inPinList= new ArrayList<Object>();
+
     ArrayList<Node> nodeList = new ArrayList<Node>();
 
     int numNodes = 0;
@@ -33,6 +35,12 @@ public class Circuit {
         }
     }
 
+    public void countUpPins(){
+
+
+
+    }
+
     public String toString(){
 
         String string = "";
@@ -48,9 +56,15 @@ public class Circuit {
 
 
         Circuit cir = Circuit.getInstance();
-        cir.addNode(6);
-        //and_2in comp0 = new and_2in(nodeList.get(1) ,2, 4 ,3);
+        Node n0 = new Node();
+        Node n1 = new Node();
+        Node n2 = new Node();
+        Node n3 = new Node();
 
+        and_2in and_gate = new and_2in(n0, n1, n2);
+        and_gate.run();
+
+        System.out.println(and_gate.toString());
 
     }
 }

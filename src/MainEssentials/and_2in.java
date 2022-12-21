@@ -21,7 +21,7 @@ public class and_2in extends Component{
 
     public String toString(){
 
-        return this.name + " ins: " + in1.getID() + " " + in2.getID() + " outs: " + out.getID();
+        return this.getID() + " " + this.name + " ins: " + in1.getID() + " " + in2.getID() + " outs: " + out.getID();
 
     }
 public void run(){
