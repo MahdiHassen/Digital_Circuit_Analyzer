@@ -10,8 +10,6 @@ public class Circuit {
 
     int numNodes = 0;
 
-
-
     private static Circuit instance = null; public static Circuit getInstance() {
         if (instance == null)
         { instance = new Circuit(); }
@@ -19,9 +17,13 @@ public class Circuit {
     private Circuit() {
     }
 
+    void addComp (Component comp){
 
-//test this
-    void addNode (int ID){
+        compList.add(comp.getID(), comp);
+
+    }
+
+    void addNode (int ID){ // add any number of nodes
 
         if (ID > (numNodes - 1)){
 
@@ -29,11 +31,8 @@ public class Circuit {
                 nodeList.add(new Node());}
             numNodes = ID + 1;
         }
-
-
     }
 
-//test this
     public String toString(){
 
         String string = "";
@@ -49,7 +48,8 @@ public class Circuit {
 
 
         Circuit cir = Circuit.getInstance();
-        cir.addNode(3);
+        cir.addNode(6);
+        //and_2in comp0 = new and_2in(nodeList.get(1) ,2, 4 ,3);
 
 
     }

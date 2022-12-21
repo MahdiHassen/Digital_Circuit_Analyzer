@@ -11,7 +11,7 @@ public class UserMain {
 
 
 
-    public static void main(String[] args) { //test Resistor
+    public static void main(String[] args) {
 
         Scanner userIn = new Scanner(System.in); // scanner
 
