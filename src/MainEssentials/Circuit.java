@@ -7,6 +7,8 @@ public class Circuit {
 
     ArrayList<Object> compList= new ArrayList<Object>();
     ArrayList<Object> inPinList= new ArrayList<Object>();
+    ArrayList<Object> outPinList= new ArrayList<Object>();
+
 
     ArrayList<Node> nodeList = new ArrayList<Node>();
 
@@ -35,7 +37,23 @@ public class Circuit {
         }
     }
 
-    public void countUpPins(){
+    public void addPin (input_pin pin){
+
+        inPinList.add(pin);
+
+    }
+
+    public void addPin (output_pin pin){
+
+        outPinList.add(pin);
+
+    }
+
+
+    public void countUp_unSet(){
+
+        byte counter = 0;
+
 
 
 

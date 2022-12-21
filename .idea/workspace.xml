@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26259ac0-78a7-44a9-9383-c8c19fc2472b" name="Changes" comment="added components">
-      <change afterPath="$PROJECT_DIR$/src/MainEssentials/input_pin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainEssentials/output_pin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainEssentials/Circuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/Circuit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainEssentials/and_2in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/and_2in.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainEssentials/not_1in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/not_1in.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainEssentials/or_2in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/or_2in.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainEssentials/input_pin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/input_pin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671584968605</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added components">
+      <created>1671610235893</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671610235893</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -2,6 +2,8 @@ package MainEssentials;
 
 public class input_pin {
 
+    public boolean isSet = false;
+
     private int ID = inPinID++;
     public static int inPinID = 0;
     private Node in;
@@ -20,6 +22,7 @@ public class input_pin {
 
     public void set(boolean setInput){
             in.setVal(setInput);
+            isSet = true;
 
     }
 
