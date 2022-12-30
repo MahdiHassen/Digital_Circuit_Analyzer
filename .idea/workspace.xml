@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="26259ac0-78a7-44a9-9383-c8c19fc2472b" name="Changes" comment="added components">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/and_2in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/and_2in.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/not_1in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/not_1in.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/or_2in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/or_2in.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainEssentials/Circuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/Circuit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainEssentials/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/Component.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainEssentials/UserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/UserMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainEssentials/input_pin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/input_pin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,18 +38,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mahdi/Desktop/Gen/Digital Circuit Analyzer/src/MainEssentials&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/mahdi/Desktop/Gen/Digital Circuit Analyzer/src/MainEssentials",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/MainEssentials" />
@@ -59,6 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671529862197</updated>
+      <workItem from="1672362933454" duration="3040000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Git">
       <created>1671529942207</created>
@@ -118,6 +129,9 @@
     </task>
     <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
