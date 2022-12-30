@@ -1,4 +1,6 @@
-package MainEssentials;
+package Components;
+
+import MainEssentials.Node;
 
 public class output_pin {
 

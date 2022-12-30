@@ -1,15 +1,20 @@
 package MainEssentials;
 
+import Components.*;
+
 import java.util.ArrayList;
 
 
 public class Circuit {
 
-    ArrayList<Object> compList= new ArrayList<Object>();
-    ArrayList<Object> inPinList= new ArrayList<Object>();
-    ArrayList<Object> outPinList= new ArrayList<Object>();
+    ArrayList<Component> compList= new ArrayList<Component>();
 
+    ArrayList<and_2in> and_2inArrayList = new ArrayList<and_2in>();
+    ArrayList<or_2in> or_2inArrayList= new ArrayList<or_2in>();
+    ArrayList<not_1in> not_1inArrayList= new ArrayList<not_1in>();
 
+    ArrayList<input_pin> inPinList= new ArrayList<input_pin>();
+    ArrayList<output_pin> outPinList= new ArrayList<output_pin>();
     ArrayList<Node> nodeList = new ArrayList<Node>();
 
     int numNodes = 0;
@@ -21,11 +26,7 @@ public class Circuit {
     private Circuit() {
     }
 
-    void addComp (Component comp){
 
-        compList.add(comp.getID(), comp);
-
-    }
 
     void addNode (int ID){ // add any number of nodes
 
@@ -37,13 +38,33 @@ public class Circuit {
         }
     }
 
-    public void addPin (input_pin pin){
+    void addComp (and_2in comp){
+
+        compList.add(comp.getID(), comp);
+        and_2inArrayList.add(comp);
+
+    }
+
+    void addComp (or_2in comp){
+
+        compList.add(comp.getID(), comp);
+        or_2inArrayList.add(comp);
+
+    }
+
+    void addComp (not_1in comp){
+
+        compList.add(comp.getID(), comp);
+        not_1inArrayList.add(comp);
+
+    }
+    public void addComp (input_pin pin){
 
         inPinList.add(pin);
 
     }
 
-    public void addPin (output_pin pin){
+    public void addComp(output_pin pin){
 
         outPinList.add(pin);
 
@@ -52,12 +73,12 @@ public class Circuit {
 
     public void countUp_unSet(){
 
-        byte counter = 0;
+        byte counter = 00000000;
 
+        //not done
 
+        }
 
-
-    }
 
     public String toString(){
 
@@ -70,6 +91,13 @@ public class Circuit {
     }
 
 
+    public void run(){
+
+        for (Component i: compList){
+
+            i.run();
+        }
+    }
     public static void main(String[] args) { //test Ciruit
 
 

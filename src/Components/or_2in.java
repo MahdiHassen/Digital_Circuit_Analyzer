@@ -1,12 +1,14 @@
-package MainEssentials;
+package Components;
 
-public class and_2in extends Component{
+import MainEssentials.Node;
+
+public class or_2in extends Component {
 
     Node in1, in2, out;
     public int num_in = 2;
     public int num_out = 1;
 
-    public and_2in(Node in1, Node in2, Node out) {
+    public or_2in(Node in1, Node in2, Node out) {
         this.in1 = in1;
         this.in2 = in2;
         this.out = out;
@@ -14,17 +16,17 @@ public class and_2in extends Component{
         super.num_in = num_in;
         super.num_out = num_out;
 
-        super.setName("and_2in");
+        super.setName("or_2in");
 
     }
-
 
     public String toString(){
 
         return this.getID() + " " + this.name + " ins: " + in1.getID() + " " + in2.getID() + " outs: " + out.getID();
 
     }
-public void run(){
-        out.setVal(in1.getVal() & in2.getVal());
-}
+
+    public void run(){
+        out.setVal(in1.getVal() || in2.getVal());
+    }
 }

@@ -1,6 +1,8 @@
-package MainEssentials;
+package Components;
 
-public class not_1in extends Component{
+import MainEssentials.Node;
+
+public class not_1in extends Component {
 
     Node in1, out;
     public int num_in = 1;

@@ -38,8 +38,9 @@ public class UserMain {
             System.out.println(cir1.toString());
         }
               else
-                if (Objects.equals(inputArray[0], "v")) {
+                if (Objects.equals(inputArray[0], "input")) {
 
+                    //compList
 
                 }
 

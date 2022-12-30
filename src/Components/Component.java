@@ -1,4 +1,7 @@
-package MainEssentials;
+package Components;
+
+import Components.and_2in;
+import MainEssentials.Node;
 
 public class Component {
 
@@ -41,6 +44,10 @@ public class Component {
 
 
         return "Component Name: " + this.name + "\n Desc:" + this.description + "\n Num Ins: " + num_in + " ,Num outs: " + num_out;
+    }
+
+    public void run(){
+        System.out.println("no run function");
     }
 
 
