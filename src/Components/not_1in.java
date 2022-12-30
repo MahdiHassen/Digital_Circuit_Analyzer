@@ -26,9 +26,13 @@ public class not_1in {
         return ID;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String toString(){
 
-        return this.getID() + " " + this.name + " ins: " + in1.getID() + " outs: " + out.getID();
+        return this.getID() + " " + this.getName() + " input nodes: " + in1.getID() + ", Output Nodes: " + out.getID();
 
     }
 

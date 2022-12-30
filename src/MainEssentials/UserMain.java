@@ -1,7 +1,6 @@
 package MainEssentials;
 
-import Components.input_pin;
-import Components.output_pin;
+import Components.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -45,12 +44,12 @@ public class UserMain {
             else if (Objects.equals(inputArray[0], "input")) { //input command inputs components into circuit
 
                     String component = inputArray[1];
-                    String name = inputArray[3];
+                    String name = inputArray[2];
 
 
-                if(Objects.equals(component , "input_pin")){ //adding input pin format: input input_pin "nodeNum" "name" set/unset "val (0 or 1)"
+                if(Objects.equals(component , "input_pin")){ //adding input pin format: input input_pin "name" "nodeNum"  set/unset "val (0 or 1)"
 
-                            int Node = Integer.parseInt(inputArray[2]);
+                            int Node = Integer.parseInt(inputArray[3]);
 
                             cir1.addNode(Node);
                             input_pin pin = new input_pin(cir1.nodeList.get(Node), name);
@@ -76,15 +75,52 @@ public class UserMain {
 
                             else System.out.println("pin must be set or unset");}
 
-                        else if(Objects.equals(component, "output_pin")) { // adding output pin format: input output_pin "nodeNum" "name"
+                else if(Objects.equals(component, "output_pin")) { // adding output pin format: input output_pin "nodeNum" "name"
 
-                            int Node = Integer.parseInt(inputArray[2]);
-                            cir1.addNode(Node);
-                            output_pin pin = new output_pin(cir1.nodeList.get(Node), name);
-                            cir1.addComp(pin);
+                    int Node = Integer.parseInt(inputArray[3]);
+                    cir1.addNode(Node);
+                    output_pin pin = new output_pin(cir1.nodeList.get(Node), name);
+                    cir1.addComp(pin);
 
                         }
 
+                else if (Objects.equals(component, "and_2in")){ //adding 2in 1out format: input "comp (like and_2in)" "nodeIn1#" "nodeIn2#" "nodeOut1#"
+
+                    int inNode1 = Integer.parseInt(inputArray[2]);
+                    int inNode2 = Integer.parseInt(inputArray[3]);
+                    int outNode1 = Integer.parseInt(inputArray[4]);
+
+                    cir1.addNode(inNode1); cir1.addNode(inNode2); cir1.addNode(outNode1); // adds potential nodes to circuit
+
+                    and_2in gate = new and_2in(cir1.nodeList.get(inNode1),cir1.nodeList.get(inNode2), cir1.nodeList.get(outNode1));
+                    cir1.addComp(gate);
+
+                }
+
+                else if (Objects.equals(component, "or_2in")){ //adding 2in 1out format: input "comp (like or_2in)" "nodeIn1#" "nodeIn2#" "nodeOut1#"
+
+                    int inNode1 = Integer.parseInt(inputArray[2]);
+                    int inNode2 = Integer.parseInt(inputArray[3]);
+                    int outNode1 = Integer.parseInt(inputArray[4]);
+
+                    cir1.addNode(inNode1); cir1.addNode(inNode2); cir1.addNode(outNode1); // adds potential nodes to circuit
+
+                    or_2in gate = new or_2in(cir1.nodeList.get(inNode1),cir1.nodeList.get(inNode2), cir1.nodeList.get(outNode1));
+                    cir1.addComp(gate);
+
+                }
+
+                else if (Objects.equals(component, "not_1in")){ //adding 1in 1out format: input "comp (like not_1in)" "nodeIn1#" "nodeOut1#"
+
+                    int inNode1 = Integer.parseInt(inputArray[2]);
+                    int outNode1 = Integer.parseInt(inputArray[3]);
+
+                    cir1.addNode(inNode1); cir1.addNode(outNode1); // adds potential nodes to circuit
+
+                    not_1in gate = new not_1in(cir1.nodeList.get(inNode1), cir1.nodeList.get(outNode1));
+                    cir1.addComp(gate);
+
+                }
 
                         else throw new IllegalStateException("Unexpected value: " + inputArray[1]);
 
@@ -95,4 +131,4 @@ public class UserMain {
 
     }}}
 
-//input input_pin 2 Hafsa set 1
+//input input_pin Hafsa 2 set 1

@@ -26,8 +26,12 @@ public class or_2in{
 
     public String toString(){
 
-        return this.getID() + " " + this.name + " ins: " + in1.getID() + " " + in2.getID() + " outs: " + out.getID();
+        return this.getID() + " " + this.getName() + " input nodes: " + in1.getID() + ", " + in2.getID() + " Output Nodes: " + out.getID();
 
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void run(){

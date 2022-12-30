@@ -26,7 +26,7 @@ public class output_pin {
     }
 
     public String toString(){
-        return "output_pin: " +  name + ", Node " + out.getID() + " unset ";
+        return "output_pin: " +  name + ", Node " + out.getID();
     }
 
 }
