@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26259ac0-78a7-44a9-9383-c8c19fc2472b" name="Changes" comment="added components">
+    <list default="true" id="26259ac0-78a7-44a9-9383-c8c19fc2472b" name="Changes" comment="removed and, or, not gate's dependance on component super class. Will be added again when needed. &#10;&#10;Commented UserMain to reflect edits.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/and_2in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/and_2in.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/not_1in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/not_1in.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/or_2in.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/or_2in.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/input_pin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/input_pin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/output_pin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/output_pin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainEssentials/Circuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/Circuit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainEssentials/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainEssentials/UserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainEssentials/UserMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671529862197</updated>
-      <workItem from="1672362933454" duration="3040000" />
+      <workItem from="1672362933454" duration="12080000" />
     </task>
     <task id="LOCAL-00001" summary="Testing Git">
       <created>1671529942207</created>
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671611211476</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="removed and, or, not gate's dependance on component super class. Will be added again when needed. &#10;&#10;Commented UserMain to reflect edits.">
+      <created>1672366157125</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672366157125</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +168,7 @@
     <MESSAGE value="Setting up basics, Node class supports having HIGH or LOW values." />
     <MESSAGE value="Added Component class" />
     <MESSAGE value="added components" />
-    <option name="LAST_COMMIT_MESSAGE" value="added components" />
+    <MESSAGE value="removed and, or, not gate's dependance on component super class. Will be added again when needed. &#10;&#10;Commented UserMain to reflect edits." />
+    <option name="LAST_COMMIT_MESSAGE" value="removed and, or, not gate's dependance on component super class. Will be added again when needed. &#10;&#10;Commented UserMain to reflect edits." />
   </component>
 </project>

@@ -38,8 +38,9 @@ public class Node {
         return ID;
 
     }
+    
+    public String getStringVal(){
 
-    public String toString() {
         String out = null;
 
         if(hasVal){
@@ -55,7 +56,13 @@ public class Node {
             out = "noVal";
         }
 
-        return String.valueOf(this.ID) + " " + out;
+        return out;
+    }
+
+    public String toString() {
+        String out = this.getStringVal();
+
+        return String.valueOf(this.ID) + " value: " + out;
     }
 
 

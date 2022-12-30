@@ -9,8 +9,8 @@ import java.util.Objects;
 public class Circuit {
 
 
-    //list of components + list of each component
-    ArrayList<Object> compList= new ArrayList<Object>();
+    //list of components + list of each component + node list
+    ArrayList<Object> compList = new ArrayList<Object>();
     ArrayList<and_2in> and_2inArrayList = new ArrayList<and_2in>();
     ArrayList<or_2in> or_2inArrayList= new ArrayList<or_2in>();
     ArrayList<not_1in> not_1inArrayList= new ArrayList<not_1in>();
@@ -39,29 +39,34 @@ public class Circuit {
 
     void addComp (and_2in comp){
 
+        compList.add(comp);
         and_2inArrayList.add(comp);
 
     }
 
     void addComp (or_2in comp){
 
+        compList.add(comp);
         or_2inArrayList.add(comp);
 
     }
 
     void addComp (not_1in comp){
 
+        compList.add(comp);
         not_1inArrayList.add(comp);
 
     }
     public void addComp (input_pin pin){
 
+        compList.add(pin);
         inPinList.add(pin);
 
     }
 
     public void addComp(output_pin pin){
 
+        compList.add(pin);
         outPinList.add(pin);
 
     }
@@ -69,7 +74,7 @@ public class Circuit {
 
     public void countUp_unSet(){
 
-        byte counter = 00000000;
+        byte counter = 0b00000000;
 
         //not done
 
@@ -92,17 +97,6 @@ public class Circuit {
     }
     public static void main(String[] args) { //test Ciruit
 
-
-        Circuit cir = Circuit.getInstance();
-        Node n0 = new Node();
-        Node n1 = new Node();
-        Node n2 = new Node();
-        Node n3 = new Node();
-
-        and_2in and_gate = new and_2in(n0, n1, n2);
-        and_gate.run();
-
-        System.out.println(and_gate.toString());
 
     }
 }

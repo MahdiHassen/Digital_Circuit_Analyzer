@@ -24,4 +24,9 @@ public class output_pin {
         return name + out.getVal();
 
     }
+
+    public String toString(){
+        return "output_pin: " +  name + ", Node " + out.getID() + " unset ";
+    }
+
 }
