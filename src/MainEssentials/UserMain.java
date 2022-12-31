@@ -134,7 +134,39 @@ public class UserMain {
 
             }
 
+            else if (Objects.equals(inputArray[0], "set")){
 
+               String name = inputArray[1];
+               String val = inputArray[2];
+
+               for (input_pin pin : cir1.inPinList){
+
+                    if (Objects.equals(pin.getName(), name)){
+
+                        if(Objects.equals(val, "1")){
+                            pin.set(true);
+                        }
+
+                        if(Objects.equals(val, "0")){
+                            pin.set(false);
+                        }
+
+                        if(Objects.equals(val, "unset")){
+                            pin.unset();
+                        }
+                    }
+
+               }
+
+            }
+
+            else if (Objects.equals(inputArray[0], "tt")){ //truth table
+
+                System.out.println("Generating Truth Table...");
+
+
+
+            }
 
             else System.out.println("Input Valid command");
 

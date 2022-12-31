@@ -29,6 +29,11 @@ public class output_pin {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+
     public String toString(){
         return "output_pin: " +  name + ", Node " + out.getID();
     }

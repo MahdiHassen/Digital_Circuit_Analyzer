@@ -76,6 +76,8 @@ public class Circuit {
 
         byte counter = 0b00000000;
 
+
+
         //not done
 
         }

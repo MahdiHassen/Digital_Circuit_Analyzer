@@ -16,6 +16,13 @@ public class input_pin {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void unset(){
+        isSet = false;
+    }
 
     public void set(boolean setInput){
             in.setVal(setInput);
@@ -36,6 +43,11 @@ public class input_pin {
         }
 
         else return "input_pin: " +  name + ", Node " + in.getID() + ", Value " + in.getStringVal();
+    }
+
+    public int getID(){
+
+        return this.ID;
     }
 
     public void run(){
