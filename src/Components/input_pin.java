@@ -38,5 +38,10 @@ public class input_pin {
         else return "input_pin: " +  name + ", Node " + in.getID() + ", Value " + in.getStringVal();
     }
 
+    public void run(){
+
+
+    }
+
 }
 

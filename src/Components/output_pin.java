@@ -21,7 +21,11 @@ public class output_pin {
 
     public String listVal(){
 
-        return name + out.getVal();
+        return "output pin:" + name + " " + out.getVal();
+
+    }
+
+    public void run(){
 
     }
 

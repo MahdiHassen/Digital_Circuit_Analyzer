@@ -94,9 +94,25 @@ public class Circuit {
 
     public void run(){
 
-    }
-    public static void main(String[] args) { //test Ciruit
+        for(int i = 0; i < compList.size(); i++){
 
 
+            for(and_2in comp : and_2inArrayList){
+                comp.run();
+            }
+
+            for(or_2in comp : or_2inArrayList){
+                comp.run();
+            }
+
+            for(not_1in comp : not_1inArrayList){
+                comp.run();
+            }
+        }
+
+
+        for(output_pin pin: outPinList){
+            System.out.println(pin.listVal());
+        }
     }
 }

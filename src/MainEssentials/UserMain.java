@@ -127,8 +127,16 @@ public class UserMain {
 
                 }
 
-            else System.out.println("Input Valid Component");
+            else if (Objects.equals(inputArray[0], "run")){
+
+                System.out.println("Running...");
+                cir1.run();
+
+            }
+
+
+
+            else System.out.println("Input Valid command");
 
     }}}
 
-//input input_pin Hafsa 2 set 1
