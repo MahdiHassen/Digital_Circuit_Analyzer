@@ -30,6 +30,7 @@ public class input_pin {
 
     }
 
+
     public boolean getVal(){
         return in.getVal();
     }
@@ -48,6 +49,10 @@ public class input_pin {
     public int getID(){
 
         return this.ID;
+    }
+
+    public Node getNode() {
+        return in;
     }
 
     public void run(){

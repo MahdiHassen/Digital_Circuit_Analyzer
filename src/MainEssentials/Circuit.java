@@ -72,11 +72,74 @@ public class Circuit {
     }
 
 
-    public void countUp_unSet(){
+    public void tt(){ //truth table method
 
-        byte counter = 0b00000000;
+        int counter = 0b00000000;
+        int inCount = 0;
+        int outCount = 0;
+
+        for (input_pin pin : inPinList){
+
+            System.out.print(pin.getName() + " ");
+
+            inCount++;
+        }
+
+        System.out.print("| ");
+
+        for (output_pin pin: outPinList){
+
+            System.out.print(pin.getName() + " ");
+
+            outCount++;
+        }
+
+        System.out.println();
+        for (int i = 0; i < (inCount + outCount + 1) * 2 ; i++ ){ //make this work later
+            System.out.print("_");
+        }
+        System.out.println();
 
 
+        for (input_pin pin : inPinList){ //initializes all inputs at zero
+            pin.set(false);
+        }
+
+        for(int i = 0; i < Math.pow(2, inCount); i++){
+
+            this.run();
+
+            for(input_pin pin: inPinList){
+                System.out.print(pin.getNode().getStringVal() + " ");
+            }
+
+            System.out.print("| ");
+
+            for(output_pin pin: outPinList){
+               System.out.print(pin.getNode().getStringVal() + " ");
+            }
+
+            System.out.println();
+
+            counter++;
+            int pinCounter = 0;
+            for(int j = 1;  j < Math.pow(2, inPinList.size()); j = j * 2){ // j goes from 0b00001 to 0b00010 to 0b00100... every loop
+
+
+                //System.out.println(j);
+
+                if ((j & counter) != 0){ //if pin should be HIGH
+
+                    //System.out.println("     f     ");
+                    inPinList.get(pinCounter).set(true);
+
+                }
+
+                else inPinList.get(pinCounter).set(false);
+
+                pinCounter++;
+            }
+        }
 
         //not done
 
@@ -113,8 +176,8 @@ public class Circuit {
         }
 
 
-        for(output_pin pin: outPinList){
-            System.out.println(pin.listVal());
-        }
+        //for(output_pin pin: outPinList){
+          //  System.out.println(pin.listVal());
+       // }
     }
 }

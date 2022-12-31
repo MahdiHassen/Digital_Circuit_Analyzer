@@ -38,4 +38,7 @@ public class output_pin {
         return "output_pin: " +  name + ", Node " + out.getID();
     }
 
+    public Node getNode() {
+        return out;
+    }
 }
