@@ -1,6 +1,5 @@
 package Components;
 
-import Components.and_2in;
 import MainEssentials.Node;
 
 public class Component {
