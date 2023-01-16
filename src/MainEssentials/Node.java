@@ -5,7 +5,6 @@ public class Node {
     public static int nodeID = 0;
     public boolean hasVal;
     private boolean val;
-
     private boolean valChange;
 
 
@@ -13,6 +12,11 @@ public class Node {
 
         this.valChange = true;
         this.hasVal = false;
+    }
+
+    public boolean getValChange(){
+
+        return this.valChange;
     }
 
     public void setVal(boolean val) { //sets Value of node to HIGH or LOW
