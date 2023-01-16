@@ -36,7 +36,7 @@ public class Circuit {
         }
     }
 
-    void addComp (and_2in comp){
+    void addComp (and_2in comp){ //adds component
 
         compList.add(comp);
         and_2inArrayList.add(comp);
@@ -77,7 +77,7 @@ public class Circuit {
         int inCount = 0;
         int outCount = 0;
 
-        for (input_pin pin : inPinList){
+        for (input_pin pin : inPinList){ //counts number of input pins and prints names
 
             System.out.print(pin.getName() + " ");
 
@@ -86,7 +86,7 @@ public class Circuit {
 
         System.out.print("| ");
 
-        for (output_pin pin: outPinList){
+        for (output_pin pin: outPinList){ //counts number of output pins and prints names
 
             System.out.print(pin.getName() + " ");
 
@@ -94,42 +94,41 @@ public class Circuit {
         }
 
         System.out.println();
-        for (int i = 0; i < (inCount + outCount + 1) * 2 ; i++ ){ //make this work later
+        for (int i = 0; i < (inCount + outCount + 1) * 2 ; i++ ){ // prints line under pin names, needs to be more dynamic
             System.out.print("_");
         }
         System.out.println();
 
 
-        for (input_pin pin : inPinList){ //initializes all inputs at zero
+        for (input_pin pin : inPinList){ //initializes all inputs at zero, needs to do only set pins, make seprate function
             pin.set(false);
         }
 
-        for(int i = 0; i < Math.pow(2, inCount); i++){
+        for(int i = 0; i < Math.pow(2, inCount); i++){ //runs components max # of times, needs to be modified to only run until steady-state is reached
 
             this.run();
 
-            for(input_pin pin: inPinList){
+            for(input_pin pin: inPinList){ //prints input pin values
                 System.out.print(pin.getNode().getStringVal() + " ");
             }
 
             System.out.print("| ");
 
-            for(output_pin pin: outPinList){
+            for(output_pin pin: outPinList){ //prints output pin values
                System.out.print(pin.getNode().getStringVal() + " ");
             }
 
-            System.out.println();
+            System.out.println(); //new line for new input
 
             counter++;
+
             int pinCounter = 0;
+
             for(int j = 1;  j < Math.pow(2, inPinList.size()); j = j * 2){ // j goes from 0b00001 to 0b00010 to 0b00100... every loop
 
 
-                //System.out.println(j);
+                if ((j & counter) != 0){ //if pin should be HIGH, make it high
 
-                if ((j & counter) != 0){ //if pin should be HIGH
-
-                    //System.out.println("     f     ");
                     inPinList.get(pinCounter).set(true);
 
                 }
@@ -139,8 +138,6 @@ public class Circuit {
                 pinCounter++;
             }
         }
-
-        //not done
 
         }
 
@@ -158,7 +155,7 @@ public class Circuit {
 
     public void run(){
 
-        for(int i = 0; i < compList.size(); i++){
+        for(int i = 0; i < compList.size(); i++){ //runs eveything a bunch of times, should rely on node changes instead, ie: if circuit reaches steady state
 
 
             for(and_2in comp : and_2inArrayList){
@@ -175,8 +172,5 @@ public class Circuit {
         }
 
 
-        //for(output_pin pin: outPinList){
-          //  System.out.println(pin.listVal());
-       // }
     }
 }

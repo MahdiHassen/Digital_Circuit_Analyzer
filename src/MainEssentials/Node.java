@@ -6,28 +6,58 @@ public class Node {
     public boolean hasVal;
     private boolean val;
 
-    public Node(){ // sets hasVal false, AKA not HIGH or LOW
+    private boolean valChange;
+
+
+    public Node(){ // sets hasVal false, AKA not HIGH or LOW,  val change on
+
+        this.valChange = true;
         this.hasVal = false;
     }
 
     public void setVal(boolean val) { //sets Value of node to HIGH or LOW
-        this.val = val;
-        this.hasVal = true;
+
+        if (this.hasVal){
+
+            if (this.getVal() != val){ //if value changes turn val change to true
+
+                this.valChange= true;
+                this.val = val;}
+
+            else{//if value doesn't change
+
+                    this.valChange = false;
+
+            }
+
+
+        }
+
+        else{ //if it doesnt have a previous value just ignore it since val change is on by default
+
+            this.val = val;
+            this.hasVal = true;
+
+
+
+        }
+
+
     }
 
-    public void setVal(int val) throws Exception { //sets Value of node to HIGH or LOW
+    public void setVal(int val) throws Exception { //sets Value of node to HIGH or LOW, dont use this yet, weird things happen
         if (val == 1){
-            this.val = true;
+            this.setVal(true);
         }
 
         else if (val == 0){
-            this.val = false;
+            this.setVal(false);
         }
 
         else{
-            throw new Exception("Node must take 0 or 1");
+            throw new IllegalArgumentException("Node must take 0 or 1");
         }
-        this.hasVal = true;
+        //this.setVal(true);
     }
 
     public boolean getVal(){
@@ -65,15 +95,16 @@ public class Node {
         return String.valueOf(this.ID) + " value: " + out;
     }
 
+    public void checkValChange(){ //should see if value changes
 
-    public static void main(String[] args) throws Exception { //test node ID and val
 
-        Node node1 = new Node();
-        node1.setVal(0);
-        Node node2 = new Node();
-        Node node3 = new Node();
 
-        System.out.println("node1 is: " + node1.toString() + "\nnode3 is: " + node3.toString());
+        
+
+        
 
     }
+
+
+    
 }

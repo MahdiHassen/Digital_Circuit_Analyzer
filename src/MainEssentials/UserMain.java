@@ -5,9 +5,6 @@ import Components.*;
 import java.util.Objects;
 import java.util.Scanner;
 
-
-
-//checkkkkk
 public class UserMain {
 
 
