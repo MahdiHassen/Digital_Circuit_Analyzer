@@ -8,13 +8,24 @@ public class Node {
     private boolean valChange;
 
 
+
     public Node(){ // sets hasVal false, AKA not HIGH or LOW,  val change on
 
-        this.valChange = true;
+        this.valChange = false;
         this.hasVal = false;
     }
 
-    public boolean getValChange(){
+    public Node(boolean valChange){
+        this.hasVal = false;
+        this.valChange = valChange;
+
+    }
+
+    public void setValChange(boolean valChange){
+
+        this.valChange = valChange;
+    }
+    public boolean getValChange(){ //returns true if value has changed
 
         return this.valChange;
     }
@@ -33,16 +44,11 @@ public class Node {
                     this.valChange = false;
 
             }
-
-
         }
-
         else{ //if it doesnt have a previous value just ignore it since val change is on by default
 
             this.val = val;
             this.hasVal = true;
-
-
 
         }
 
@@ -99,15 +105,12 @@ public class Node {
         return String.valueOf(this.ID) + " value: " + out;
     }
 
-    public void checkValChange(){ //should see if value changes
+ public boolean getHasVal(){
+
+        return this.hasVal;
+ }
 
 
-
-        
-
-        
-
-    }
 
 
     
