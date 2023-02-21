@@ -10,7 +10,7 @@ public class and_2in extends Component{
 
 
     public and_2in(Node in1, Node in2, Node out) {
-        super(2,1,"and_2in", "N/A");
+        super(2,1,"and_2in", " 2 input and gate ");
 
 
         this.in1 = in1;

@@ -1,7 +1,7 @@
 package MainEssentials;
 
 import Components.*;
-import org.junit.Assert;
+//import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class CircuitTest {
 
-    Circuit cir;
+    //Circuit cir;
     Node n1,n2,n3,n4, n5;
 
 

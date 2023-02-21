@@ -7,7 +7,7 @@ abstract class Component {
     private final int ID = compID++;
     public static int compID = 0;
     protected int num_in, num_out;
-    private String description = "no description provided";
+    private String description;
     protected String name = "no name provided";
 
     public Component(int num_in, int num_out, String name, String description){

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Circuit {
 
 
-    //list of components + list of each component + node list
+    //list of components + list of each component + node list... should be one list of components that can be run
     ArrayList<Object> compList = new ArrayList<Object>();
     ArrayList<and_2in> and_2inArrayList = new ArrayList<and_2in>();
     ArrayList<or_2in> or_2inArrayList= new ArrayList<or_2in>();
@@ -23,6 +23,8 @@ public class Circuit {
     public Circuit() {
     }
 
+    //Effects: Manually adds nodes to the circuit based on ID, will automatically create all nodes in between
+    //Modifies: Node list
     void addNode (int ID){ // add any number of nodes
 
         if (ID > (numNodes - 1)){
@@ -32,6 +34,8 @@ public class Circuit {
             numNodes = ID + 1;
         }
     }
+
+    //Effects adds node object to node list
     void addNode (Node n){
         nodeList.add(n);
 }
@@ -69,14 +73,14 @@ public class Circuit {
 
     }
 
-
-    public void tt(){ //truth table method
+    //Effects: Prints node list in terminal
+    public void truthTable_print(){ //truth table method
 
         int counter = 0b00000000;
         int inCount = 0; //counts number of input pins, useful for printing
         int outCount = 0; //^^ for output pins
 
-        for (input_pin pin : inPinList){ //counts number of input pins and prints names, should be seprate function
+        for (input_pin pin : inPinList){ //prints names while counting input pins, should be seperate function
 
             System.out.print(pin.getName() + " ");
 
@@ -92,6 +96,7 @@ public class Circuit {
             outCount++;
         }
 
+
         System.out.println();
 
         for (int i = 0; i < (inCount + outCount + 1) * 2 ; i++ ){ // prints line under pin names, needs to be more dynamic
@@ -106,17 +111,23 @@ public class Circuit {
         }
 
 
+        int numCombinations = (int) Math.pow(2, inCount); //number of possible combinations
         boolean running = true; //stays true while running for tt
         int pinCounter = 0; //initialize pin counter at  0
-        int pinTracker = 1; //value for pin where each bit represents an input pin, starts at 1
 
-        while(running) {
+
+
+        while(counter < numCombinations) {
+
+//            /*
+           // int pinTracker = 1; //value for pin where each bit represents an input pin, starts at 1
 
             for (input_pin p : inPinList){ //set all input nodes to no val change
                 p.getNode().setValChange(false);
+
             }
 
-            this.run();
+            this.run(); //runs circuit until steady state
 
             for (input_pin pin : inPinList) { //prints input pin values
                 System.out.print(pin.getNode().getStringVal() + " ");
@@ -132,41 +143,18 @@ public class Circuit {
 
             counter++;
 
+            int pinTracker = 1; //value for pin where each bit represents an input pin, starts at 1
+
             // needs to set pins properly
 
-            if ((pinTracker & counter) != 0) { //if pin should be HIGH, make it high
+            for (int pinIndex = 0; pinIndex < inCount; pinIndex++){
 
-                inPinList.get(pinCounter).set(true);
+                inPinList.get(pinIndex).set((pinTracker & counter) != 0);
 
+                pinTracker = pinTracker * 2;
             }
-            else inPinList.get(pinCounter).set(false);
 
-            pinCounter++;
-
-
-            pinTracker = pinTracker * 2;
-
-            if (!(pinTracker < Math.pow(2, inPinList.size()))) {
-
-                running = false;
-            }
-            //pinTracker = pinTracker * 2;
         }
-
-           /* for(int pinTracker = 1;  pinTracker < Math.pow(2, inPinList.size()); pinTracker = pinTracker * 2){ // pinTracker goes from 0b00001 to 0b00010 to 0b00100... every loop
-
-
-                if ((pinTracker & counter) != 0){ //if pin should be HIGH, make it high
-
-                    inPinList.get(pinCounter).set(true);
-
-                }
-
-                else inPinList.get(pinCounter).set(false);
-
-                pinCounter++;
-            } */
-        //}
 
         }
 
@@ -222,8 +210,6 @@ public class Circuit {
         boolean steadyCheck = false;
 
 
-        System.out.println("running...");
-
         while(!steadyCheck){ //use do while.
            // System.out.println("check");
 
@@ -232,7 +218,6 @@ public class Circuit {
 
             if (!nodeChanges()){ // if all nodes have no changes, break out of loop
                  steadyCheck = true;
-                 System.out.println("steady state");
             }
 
         }
@@ -265,12 +250,6 @@ public class Circuit {
         cirT.addNode(n6);
 
 
-        //cirT.addNode(20);
-
-        for(Node n : cirT.nodeList){
-            System.out.println(n.getID());
-        }
-    //XOR gate
 
     cirT.addComp(new and_2in(n0, n1, n2)); // A and NOT B = n2
         cirT.addComp(new not_1in(n3, n1)); // NOT B = n1
@@ -282,36 +261,8 @@ public class Circuit {
         cirT.addComp(new input_pin(n3, "B"));
         cirT.addComp(new output_pin(n6, "OUT"));
 
-        //cirT.addNode(20);
 
-        n0.setVal(false);
-        n3.setVal(false);
-
-       // n0.setVal(true);
-        //n3.setVal(false);
-
-       // System.out.println(n6.getVal());
-
-        for(Node n : cirT.nodeList){
-            System.out.println(n.getValChange());
-        }
-
-        cirT.run();
-        cirT.run();
-
-        System.out.println("out: " + n6.getVal());
-
-
-        System.out.println();
-
-        for(Node n : cirT.nodeList){
-            System.out.println(n.getValChange());
-        }
-
-        //System.out.println(n0.getID());
-
-
-        cirT.tt();
+        cirT.truthTable_print();
 
 
 

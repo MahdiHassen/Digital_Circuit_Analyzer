@@ -159,7 +159,7 @@ public class UserMain {
             else if (Objects.equals(inputArray[0], "tt")){ //truth table
 
                 System.out.println("Generating Truth Table...");
-                cir1.tt();
+                cir1.truthTable_print();
 
 
             }
