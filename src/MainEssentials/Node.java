@@ -19,6 +19,7 @@ public class Node {
         return this.valChange;
     }
 
+
     public void setVal(boolean val) { //sets Value of node to HIGH or LOW
 
         if (this.hasVal){
