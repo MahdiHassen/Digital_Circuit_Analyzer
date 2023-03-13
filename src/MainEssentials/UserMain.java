@@ -15,7 +15,7 @@ public class UserMain {
 
         Scanner userIn = new Scanner(System.in); // creates scanner for user/textdoc input
 
-        Circuit cir1 = Circuit.getInstance(); //new circuit
+        Circuit cir1 = new Circuit(); //new circuit
 
         //ArrayList<Node> nodeList = new ArrayList<Node>(); //list of nodes used in Cir
         //int maxNodeID = 0;
@@ -159,7 +159,7 @@ public class UserMain {
             else if (Objects.equals(inputArray[0], "tt")){ //truth table
 
                 System.out.println("Generating Truth Table...");
-                cir1.tt();
+                cir1.truthTable_print();
 
 
             }

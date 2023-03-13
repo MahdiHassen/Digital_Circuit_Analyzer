@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Circuit {
 
 
-    //list of components + list of each component + node list
+    //list of components + list of each component + node list... should be one list of components that can be run
     ArrayList<Object> compList = new ArrayList<Object>();
     ArrayList<and_2in> and_2inArrayList = new ArrayList<and_2in>();
     ArrayList<or_2in> or_2inArrayList= new ArrayList<or_2in>();
@@ -19,13 +19,12 @@ public class Circuit {
 
     int numNodes = 0;
 
-    private static Circuit instance = null; public static Circuit getInstance() {
-        if (instance == null)
-        { instance = new Circuit(); }
-        return instance; }
-    private Circuit() {
+
+    public Circuit() {
     }
 
+    //Effects: Manually adds nodes to the circuit based on ID, will automatically create all nodes in between
+    //Modifies: Node list
     void addNode (int ID){ // add any number of nodes
 
         if (ID > (numNodes - 1)){
@@ -36,6 +35,10 @@ public class Circuit {
         }
     }
 
+    //Effects adds node object to node list
+    void addNode (Node n){
+        nodeList.add(n);
+}
     void addComp (and_2in comp){ //adds component
 
         compList.add(comp);
@@ -70,14 +73,14 @@ public class Circuit {
 
     }
 
-
-    public void tt(){ //truth table method
+    //Effects: Prints node list in terminal
+    public void truthTable_print(){ //truth table method
 
         int counter = 0b00000000;
-        int inCount = 0;
-        int outCount = 0;
+        int inCount = 0; //counts number of input pins, useful for printing
+        int outCount = 0; //^^ for output pins
 
-        for (input_pin pin : inPinList){ //counts number of input pins and prints names
+        for (input_pin pin : inPinList){ //prints names while counting input pins, should be seperate function
 
             System.out.print(pin.getName() + " ");
 
@@ -93,50 +96,64 @@ public class Circuit {
             outCount++;
         }
 
+
         System.out.println();
+
         for (int i = 0; i < (inCount + outCount + 1) * 2 ; i++ ){ // prints line under pin names, needs to be more dynamic
             System.out.print("_");
         }
         System.out.println();
 
 
-        for (input_pin pin : inPinList){ //initializes all inputs at zero, needs to do only set pins, make seprate function
+        for (input_pin pin : inPinList){ //initializes all inputs at zero
             pin.set(false);
+
         }
 
-        for(int i = 0; i < Math.pow(2, inCount); i++){ //runs components max # of times, needs to be modified to only run until steady-state is reached
 
-            this.run();
+        int numCombinations = (int) Math.pow(2, inCount); //number of possible combinations
+        boolean running = true; //stays true while running for tt
+        int pinCounter = 0; //initialize pin counter at  0
 
-            for(input_pin pin: inPinList){ //prints input pin values
+
+
+        while(counter < numCombinations) {
+
+//            /*
+           // int pinTracker = 1; //value for pin where each bit represents an input pin, starts at 1
+
+            for (input_pin p : inPinList){ //set all input nodes to no val change
+                p.getNode().setValChange(false);
+
+            }
+
+            this.run(); //runs circuit until steady state
+
+            for (input_pin pin : inPinList) { //prints input pin values
                 System.out.print(pin.getNode().getStringVal() + " ");
             }
 
             System.out.print("| ");
 
-            for(output_pin pin: outPinList){ //prints output pin values
-               System.out.print(pin.getNode().getStringVal() + " ");
+            for (output_pin pin : outPinList) { //prints output pin values
+                System.out.print(pin.getNode().getStringVal() + " ");
             }
 
             System.out.println(); //new line for new input
 
             counter++;
 
-            int pinCounter = 0;
+            int pinTracker = 1; //value for pin where each bit represents an input pin, starts at 1
 
-            for(int j = 1;  j < Math.pow(2, inPinList.size()); j = j * 2){ // j goes from 0b00001 to 0b00010 to 0b00100... every loop
+            // needs to set pins properly
 
+            for (int pinIndex = 0; pinIndex < inCount; pinIndex++){
 
-                if ((j & counter) != 0){ //if pin should be HIGH, make it high
+                inPinList.get(pinIndex).set((pinTracker & counter) != 0);
 
-                    inPinList.get(pinCounter).set(true);
-
-                }
-
-                else inPinList.get(pinCounter).set(false);
-
-                pinCounter++;
+                pinTracker = pinTracker * 2;
             }
+
         }
 
         }
@@ -146,16 +163,16 @@ public class Circuit {
 
         String string = "";
 
-        for (int i = 0 ; i < compList.size(); i++){
-            string = string + "\n" + compList.get(i).toString();
+        for (Object o : compList) {
+            string = string + "\n" + o.toString();
         }
         return string;
     }
 
 
-    public void run(){
+    public void runOnce(){ //used to be the run function
 
-        for(int i = 0; i < compList.size(); i++){ //runs eveything a bunch of times, should rely on node changes instead, ie: if circuit reaches steady state
+        for(int i = 0; i < compList.size(); i++){ //runs eveything one time, should rely on node changes instead, ie: if circuit reaches steady state
 
 
             for(and_2in comp : and_2inArrayList){
@@ -169,8 +186,91 @@ public class Circuit {
             for(not_1in comp : not_1inArrayList){
                 comp.run();
             }
+
         }
 
 
     }
-}
+
+    public boolean nodeChanges(){ //if any node has a val change, return true, else it returns false
+
+        for(Node node : nodeList){ //check all nodes
+
+            if(node.getValChange()){
+                return true; //return true if even one node has a change
+            }
+        }
+
+        return false;
+
+    }
+
+    public void run(){
+
+        boolean steadyCheck = false;
+
+
+        while(!steadyCheck){ //use do while.
+           // System.out.println("check");
+
+            runOnce(); //runs once, then should check all nodes
+           // System.out.println("runs ");
+
+            if (!nodeChanges()){ // if all nodes have no changes, break out of loop
+                 steadyCheck = true;
+            }
+
+        }
+
+
+    }
+
+
+    public static void main(String[] args){
+
+        //quick tetsing
+
+    Circuit cirT = new Circuit();
+
+
+    Node n0 = new Node(); //A
+    Node n1 = new Node();
+    Node n2 = new Node();
+    Node n3 = new Node(); //B
+    Node n4 = new Node();
+    Node n5 = new Node();
+    Node n6 = new Node();
+
+        cirT.addNode(n0);
+        cirT.addNode(n1);
+        cirT.addNode(n2);
+        cirT.addNode(n3);
+        cirT.addNode(n4);
+        cirT.addNode(n5);
+        cirT.addNode(n6);
+
+
+
+    cirT.addComp(new and_2in(n0, n1, n2)); // A and NOT B = n2
+        cirT.addComp(new not_1in(n3, n1)); // NOT B = n1
+        cirT.addComp(new not_1in(n0, n4)); // n4 = NOT A
+        cirT.addComp(new and_2in(n3, n4, n5)); // B and NOT A = n5
+        cirT.addComp(new or_2in(n5, n2, n6)); // n6 = A XOR B
+
+        cirT.addComp(new input_pin(n0, "A"));
+        cirT.addComp(new input_pin(n3, "B"));
+        cirT.addComp(new output_pin(n6, "OUT"));
+
+
+        cirT.truthTable_print();
+
+
+
+
+
+
+
+
+
+
+    }}
