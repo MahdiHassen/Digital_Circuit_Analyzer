@@ -16,12 +16,22 @@ public class Circuit {
     ArrayList<input_pin> inPinList= new ArrayList<input_pin>();
     ArrayList<output_pin> outPinList= new ArrayList<output_pin>();
     ArrayList<Node> nodeList = new ArrayList<Node>();
+    ArrayList<CustomComponent> savedCustomComps = new ArrayList<CustomComponent>(); //saved custom comps, nothing else
+
+    ArrayList<CustomComponent> customComponentList= new ArrayList<CustomComponent>();
 
     int numNodes = 0;
 
 
     public Circuit() {
     }
+
+    public void saveCustomComp(CustomComponent comp){
+
+        savedCustomComps.add(comp);
+    }
+
+
 
     //Effects: Manually adds nodes to the circuit based on ID, will automatically create all nodes in between
     //Modifies: Node list
@@ -208,6 +218,7 @@ public class Circuit {
     public void run(){
 
         boolean steadyCheck = false;
+        boolean synchronousCheck = false; //true if circuit has clock
 
 
         while(!steadyCheck){ //use do while.
@@ -225,6 +236,16 @@ public class Circuit {
 
     }
 
+    public int getNumOuts (){
+
+        return outPinList.size();
+    }
+
+
+    public int getNumIns (){
+
+        return inPinList.size();
+    }
 
     public static void main(String[] args){
 
