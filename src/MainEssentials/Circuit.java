@@ -228,7 +228,6 @@ public class Circuit {
 
     public static void main(String[] args){
 
-        //quick tetsing
 
     Circuit cirT = new Circuit();
 
